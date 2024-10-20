@@ -1,5 +1,6 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: %i[ show edit update destroy ]
+  before_action :set_movies, only: %i[ show edit create destroy update]
 
   # GET /clients or /clients.json
   def index
@@ -49,6 +50,11 @@ class ClientsController < ApplicationController
 
   # DELETE /clients/1 or /clients/1.json
   def destroy
+        
+    if @client.movies.any?
+      @client.movies.update_all(client_id: 1)
+    end    
+    
     @client.destroy!
 
     respond_to do |format|
@@ -61,6 +67,10 @@ class ClientsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_client
       @client = Client.find(params[:id])
+    end
+
+    def set_movies
+      @movies = @client.movies
     end
 
     # Only allow a list of trusted parameters through.

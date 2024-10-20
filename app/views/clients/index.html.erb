@@ -4,13 +4,38 @@
 
 <h1>Clients</h1>
 
-<div id="clients">
-  <% @clients.each do |client| %>
-    <%= render client %>
-    <p>
-      <%= link_to "Show this client", client %>
-    </p>
-  <% end %>
+<div id="clients" class="d-flex justify-content-center">
+
+    <table class="table table-striped table-hover m-3">
+      <thead class="table-dark"> 
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Aassigned movies</th>
+          <th scope="col">Show</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      <% @clients.each do |client| %>
+        <tr>
+          <td><%= client.name %></td>
+          <td><%= client.email %></td>
+          <td>
+          <% if client.movies.exists? %>          
+            <%= client.movies.count %>             
+          <% else %>
+            0 
+          <% end %>          
+          </td>
+          <td>
+            <%= link_to client do %>
+              <i class="fa-solid fa-eye fa-lg mx-2" style="color: #063DAA;"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
 </div>
 
-<%= link_to "New client", new_client_path %>
