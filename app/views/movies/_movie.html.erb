@@ -1,17 +1,24 @@
 <div id="<%= dom_id movie %>">
-  <p>
-    <strong>Title:</strong>
-    <%= movie.title %>
-  </p>
 
-  <p>
-    <strong>Synopsis:</strong>
-    <%= movie.synopsis %>
-  </p>
-
-  <p>
-    <strong>Client:</strong>
-    <%= movie.client_id %>
-  </p>
-
+<div class="card my-3">
+  <div class="card-body">
+    <h5 class="card-title">
+      <strong>Title:</strong>
+      <%= movie.title %>
+    </h5>
+    <p class="card-text">
+      <strong>Synopsis:</strong>
+      <%= movie.synopsis %>
+    </p>    
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">
+      <strong>Client:</strong>
+      <%= movie.client.name %>
+    </h5>
+    <p class="card-text">
+      <strong>Client email:</strong>
+    <%= movie.client.email %>
+    </p> 
+  </div>
 </div>

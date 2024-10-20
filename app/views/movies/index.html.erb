@@ -1,16 +1,30 @@
 <p style="color: green"><%= notice %></p>
 
 <% content_for :title, "Movies" %>
+  <div id="movies">
 
 <h1>Movies</h1>
 
-<div id="movies">
-  <% @movies.each do |movie| %>
-    <%= render movie %>
-    <p>
-      <%= link_to "Show this movie", movie %>
-    </p>
-  <% end %>
-</div>
+<div class="row d-flex justify-content-center">
 
-<%= link_to "New movie", new_movie_path %>
+
+<% @movies.each do |movie| %>
+<div class="col-2 card border-warning m-3" style="width: 18rem;">
+ 
+  <div class="card-body">
+    <h4 class="card-title" style="color: #063DAA;"><%= movie.title %></h4>
+    <h6 class="card-subtitle mb-2 text-body-secondary">Synopsis</h6>
+    <p class="card-text"><%= movie.synopsis %></p>
+   <div>
+    <%= link_to movie do %>
+      <i class="fa-solid fa-eye fa-xl" style="color: #063DAA;"></i>
+    <% end %>      
+   </div>
+   </div>
+
+  
+</div>
+<% end %>
+
+</div>
+</div>

@@ -7,3 +7,25 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+Client.create(
+    name: "Admin",
+    email: "admin@mail.com"
+)
+
+10.times do 
+    Client.create(
+        name: Faker::Name.name,
+        email: "#{Faker::Hipster.word}@mail.com"
+    )
+    Movie.create(
+        title: Faker::Movie.title,
+        synopsis: Faker::Lorem.paragraph(sentence_count: 12, supplemental: true),
+        client_id: 1
+    )
+end
+
+
+
+
+puts "Movies added"

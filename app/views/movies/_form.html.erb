@@ -11,22 +11,22 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+  <div class="mb-3">
+    <%= form.label :title, style: "display: block", class:"form-label" %>
+    <%= form.text_field :title , class:"form-control"%>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :synopsis, style: "display: block", class:"form-label" %>
+    <%= form.text_field :synopsis, class:"form-control"%>
+  </div>
+
+ <div class="mb-3">
+    <%= form.label :client_id, style: "display: block", class:"form-label"%>
+    <%= form.select :client_id, options_for_select(@clients), class:"form-select" %>
   </div>
 
   <div>
-    <%= form.label :synopsis, style: "display: block" %>
-    <%= form.text_field :synopsis %>
-  </div>
-
-  <div>
-    <%= form.label :client_id, style: "display: block" %>
-    <%= form.text_field :client_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-warning" %>
   </div>
 <% end %>
