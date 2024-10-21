@@ -13,7 +13,7 @@ Client.create(
     email: "admin@mail.com"
 )
 
-10.times do 
+20.times do 
     Client.create(
         name: Faker::Name.name,
         email: "#{Faker::Hipster.word}@mail.com"
@@ -28,4 +28,4 @@ end
 
 
 
-puts "Movies added"
+puts "Movies and users added"
